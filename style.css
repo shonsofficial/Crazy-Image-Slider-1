@@ -1,0 +1,346 @@
+/* 3D Rotation effect using CSS only
+.banner{
+    height: 100vh; //Height of the device screen
+    overflow: hidden; //Elements that fall out of the frame will be removed
+    position: relative;
+}
+.banner .product{
+    //background-color: red;
+    width: 500px;
+    height: 500px;
+    position: absolute; //To easily move positions
+    bottom: 170px;
+    left: 50%;
+    transform: translateX(-50%); //To center it
+    z-index: 1; // To ensure that it is not overlapped by another element
+    transition: 0.7s; // Transition attribute is to specify the time to create the transition effect when the user hovers over it
+}
+.banner .product .soda{
+    background: url(images/cbpk\ 1\ \(1\).jpg);
+    background: url(images/soda-mockup.png);
+    background-size: auto 100%; // 100% of the elements height
+    width: 280px;
+  //height: 560px; With this type of image, we need to have width and height to ensure that the mockup image is visible
+    aspect-ratio: 2/4;
+}
+*/
+body{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    background-color: gray;
+    color: white;
+    margin: 0px;
+    font-size: 12px;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+header{
+    width: 1140px; /* When accessed on devices with large scrrens of 1140px */
+    max-width: 80%; /* For devices with small screens, its max size will be 80% of the screen */
+    margin: auto; /* To put the header in the middle */ 
+    height: 50px;
+    display: flex; /* To allign items */
+    align-items: center; /* To move header to the middle of the row */
+    position: relative;
+    z-index: 100; /* Using relative position and z- index to make the header overlap the carousel class with the rule that the element with the larger z-index will be placed on top of the other element */
+}
+header a{
+    margin-right: 40px; /* To create spacing */
+}
+.carousel{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden; /*To remove content outside the frame*/
+    margin-top: -50px; /*To put the carousel class at the top of the page which was previously occupied by the header of 50px */
+    position: relative; /*If you want it to align the position according to the carousel class*/
+}
+.carousel .list .item{
+    position: absolute; /*For the items in the carousel to overlap each other */
+    inset: 0 0 0 0; /* Same as top:0; left:0; Bottom:0; & Right:0; .Adding position to this class on all 4 sides*/
+
+}
+.carousel .list .item img{
+    width: 100%; /*The images inside will be same size as the items themselves*/
+    height: 100%;
+    object-fit: cover;
+}
+.carousel .list .item .content{
+    position: absolute;
+    top: 20%;
+    width: 1140px; /* When accessed on devices with large scrrens of 1140px */
+    max-width: 80%; /* For devices with small screens, its max size will be 80% of the screen */
+    left: 50%;
+    transform: translateX(-50%); /*To center it*/
+    padding-right: 30%;
+    box-sizing: border-box; /*A class which declares both width and padding needs to declare box sizing. Border box to not change the size of the width*/
+    color: white;
+    text-shadow: 0 5px 10px #0004; /*Both color and text shadow help the content stand out more*/
+}
+.carousel .list .item .content .author{
+    font-weight: bold;
+    letter-spacing: 10px;
+}
+.carousel .list .item .content .title,
+.carousel .list .item .content .topic{
+    font-weight: bold;
+    font-size: 5em;
+    list-style: 1.3em;
+}
+.carousel .list .item .content .topic{
+    color: #f1683a;
+}
+.carousel .list .item .content .buttons{
+    display: grid;
+    grid-template-columns: repeat(2, 130px);
+    grid-template-rows: 40px;
+    gap: 5px;
+    margin-top: 20px;
+}
+.carousel .list .item .content button{
+    border: none;
+    background-color: white;
+    letter-spacing: 3px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 500;
+}
+.carousel .list .item .content button:nth-child(2){
+    background-color: transparent;
+    color: #eee;
+    border: 1px solid #eee;
+}
+
+.thumbnail{
+    position: absolute;
+    bottom: 50px;
+    left: 42%;
+    width: max-content; /* It will scale according to the content inside */
+    z-index: 100; /* So that it overlaps the items in the class list */
+    display: flex; /* So that the items inside are in the same row */
+    gap: 20px; /*Distance of the items*/
+}
+.thumbnail .item{
+    width: 150px;
+    height: 220px;
+    flex-shrink: 0; /* So that the size does not shrink on small screens*/
+    position: relative; /* So that the content inside can rely on it to move position*/
+}
+.thumbnail .item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /*To prevent the image from breaking*/
+    border-radius: 10px;
+}
+.thumbnail .item .content{
+    position: absolute; /*To move the position*/
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+
+}
+.thumbnail .item .content .title{
+    font-weight: bold;
+}
+
+.arrows{
+    position: absolute; /*To move the position*/
+    top: 80%; /*The top distance of the carousel class is 80%*/
+    right: 52%;
+    width: 300px;
+    max-width: 30%;
+    display: flex; /*So that the two buttons are always in the same row*/
+    gap: 10px;
+    align-items: center;
+}
+.arrows button{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #eee4;
+    border: none;
+    font-family: monospace;
+    color: #fff;
+    font-weight: bold;
+    font-size: large;
+    transition: .5s;
+    z-index: 100;
+}
+.arrows button:hover{
+    background-color: #eee;
+    color: #555;
+}
+
+/*Stipulate that the item that is in the first position will always be the item that is in active state*/
+.carousel .list .item:nth-child(1){   
+    z-index: 1; /*To make sure that the 1st item always appears by giving it a z-index that it overlaps all other items*/
+} /* This makes the arrow buttons dissapear for now, because when the first item is activated, it overlaps these buttons. So make the arrow button have a higher z index than the active page*/
+
+/* An animation effect using the contents of the first item to make it more beautiful */
+.carousel .list .item:nth-child(1) .author,
+.carousel .list .item:nth-child(1) .title,
+.carousel .list .item:nth-child(1) .topic,
+.carousel .list .item:nth-child(1) .des,
+.carousel .list .item:nth-child(1) .buttons{
+    transform: translateY(50px); /* Initially they will be shifted down 50px*/
+    filter: blur(20px); /* pixel blur */
+    opacity: 0; /*To hide it*/
+    animation: showContent 0.5s 1s linear 1 forwards;
+}
+@keyframes showContent{
+    to{
+        opacity: 1; /*To show content*/
+        filter: blur(0); /*To clearly see the content*/
+        transform: translateY(0); /*To return the content to it's original position*/
+    }
+}
+.carousel .list .item:nth-child(1) .title{
+    animation-delay: 1.3s; /* Making the title content display slower than the previous content to create a more fancier effect*/
+}
+.carousel .list .item:nth-child(1) .topic{
+    animation-delay: 1.4s;
+}
+.carousel .list .item:nth-child(1) .des{
+    animation-delay: 1.6s;   
+}
+.carousel .list .item:nth-child(1) .buttons{
+    animation-delay: 1.8s;
+}
+
+/*Creating an effect for the slider when the user clicks on the next button. When the user clicks on the next button, assign the carousel class one next class (The thumbnail image in the first position will be enlarged to a large image)*/
+/*effect next click*/
+.carousel .next .list .item:nth-child(1){ /*Returning to the image located in the first item, resize it by thumbnail image and move it to the position of the first thumbnail image, so that these 2 images overlap each other*/
+    width: 150px;
+    height: 220px;
+    position: absolute;
+    left: 50px;
+    bottom: 50px;
+    border-radius: 20px;
+    animation: showImage 0.5s linear 1 forwards;
+}
+@keyframes showImage{
+    to{ /*Changing the image's size and position back to the original*/
+        width: 100%;
+        height: 100%;
+    } /*When the user looks at it, it will feel like the thumbnail image has been enlarged yet in real sense the user is deceived*/
+} /*NB: When a thumbnail zooms in, it should no longer be in the first place, it should move to the end of the thumbnail images starting with the first image*/
+/*Bcoz when we press the next button, the list of thumbnail images has had their position changed specifically the 1st thumbnail image has moved to the last*/
+
+ /*Animation effect for the thumbnail at the last position to make it more beautiful*/
+.carousel .next .thumbnail .item:nth-child(1){
+    width: 0; /*To hide it*/
+    overflow: hidden; /*To make text outside also disappear*/
+    animation: showThumbnail .5s linear 1 forwards;
+}
+@keyframes showThumbnail {
+    to{
+        width: 150px;
+    }
+}
+.carousel .next .thumbnail{ /*Class thumbnail which  contains all thumbnail images*/
+    transform: translateY(150px); /*Move 150px to the left*/
+    animation: transformThumbnail .5s linear 1 forwards; /* Animation to move it back to its original position*/
+}
+@keyframes transformThumbnail{
+    to{
+        transform: translateX(0);
+    }
+}
+
+/*Effect prev click*/ 
+/*We know that the first item is always the active item, that means that the second item is always the item that has been deleted from the active state*/
+/*Point to the image of the second item to create the disappearing effect*/
+.carousel.prev .list .item:nth-child(2){
+    z-index: 2; /*Making the z-index of the second item higher than the first item*/ 
+}
+.carousel.prev .list .item:nth-child(2) img{ /*Second item image will have the same size and position as a normal active item, however this time it will run an out image animation*/
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    animation: outImage 0.5s linear 1 forwards;
+}
+@keyframes outImage{ /*In outImage, scaling it down to the size of a thumbnail image then moving it to the position of the first thumbnail item*/
+    to{
+        width: 150px;
+        height: 220px;
+        border-radius: 20px;
+        left: 50%;
+        bottom: 50px;
+    }
+}
+
+/* If the user clicks the next button, then we will create the animation of the final item, so when the user presses the back button, lets do the opposite */
+.carousel .prev .thumbnail .item:nth-child(1){ /*So when the user presses the previous item, points to the first thumbnail item*/
+    width:0;
+    overflow: hidden;
+    opacity: 0;
+    animation: showThumbnail 0.5s linear 1 forwards;
+}
+
+/*Content of the second item is currently overiding the content of the currently active item, so create an animation to hide it*/
+/*When the user presses the back button, refer to the content inside the content including author, title, topic, description and buttons*/
+.carousel .prev .list .item:nth-child(2) .author,
+.carousel .prev .list .item:nth-child(2) .title,
+.carousel .prev .list .item:nth-child(2) .topic,
+.carousel .prev .list .item:nth-child(2) .des,
+.carousel .prev .list .item:nth-child(2) .buttons{
+    animation: contentOut 1.5s linear 1 forwards;
+}
+@keyframes contentOut {
+    to{
+        transform: translateY(150px); /*To move it, if you want it to move up, change 150px to -150px*/
+        filter: blur(20px);
+        opacity: 0; /*To hide it*/
+    }
+}
+
+/*When the user presses the next or back button during the slider process the animation is performed, i will not let the user click this button until the animation runs parallel by using pointer event none*/
+.carousel .next .arrows button,
+.carousel .prev .arrows button{
+    pointer-events: none;
+}
+
+/*Time*/
+.time{
+    width: 0%;
+    height: 5px;
+    position: absolute; /*To shift it's position*/
+    background-color: #f1683a; /*To make it stand out*/
+    z-index: 100;
+    top: 0;
+    left: 0;
+
+}
+.carousel .next .time,
+.carousel .prev .time{
+    width: 100%;
+    animation: timeRunning 2s linear 1 forwards; /*In this animation, width will gradually decrease until it reaches zero to signal that the slider animation is complete*/
+}
+@keyframes timeRunning {
+    to{
+        width: 0;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

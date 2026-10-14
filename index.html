@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LunDev Code</title>
+    <!-- Bootstrap head code <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Bootsrap button (source: Chatgpt)
+    <button class="btn btn-primary">Click Me</button> -->
+
+    <!-- 3D Rotation effect using CSS only (soda bottle turning into another soda bottle). NB: It can also be done with javascript as shown in another video -->
+     <!--A bottle is made from 2 ingredients, a bottle and its cover photo-->
+    <!--
+     <div class="banner">
+        <div class="product"> //To contain products
+            <div class="soda"> //Each soda class will represent a product image
+
+            </div>
+        </div>
+    </div> -->
+
+    <!--Header-->
+    <header>
+        <nav>
+            <a href="">Home</a>
+            <a href="">Contacts</a>
+            <a href="">Info</a>
+        </nav>
+    </header>
+
+    <!-- Carousel (slider) -->
+     <div class="carousel"> <!--Previously was class="carousel next" & class="carousel prev" which will only appear here when the user presses their buttons-->
+        <!--list items-->
+        <div class="list">
+            <div class="item">
+                <img src="images/cheetah.jpg">
+                <div class="content">
+                    <div class="author">LUNDEV</div>
+                    <div class="title">DESIGN SLIDER</div> <!--Project name-->
+                    <div class="topic">ANIMAL</div>
+                    <div class="des">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium voluptates optio quasi in iure tempore facere voluptatum laborum omnis aut numquam doloremque, velit rem, illo culpa dolorem possimus dolore facilis?
+                    </div>
+                    
+                    <div class="buttons">
+                        <button>SEE MORE</button>
+                        <button>SUBSCRIBE</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="images/lion.jpg">
+                <div class="content">
+                    <div class="author">LUNDEV</div>
+                    <div class="title">DESIGN SLIDER</div> <!--Project name-->
+                    <div class="topic">ANIMAL</div>
+                    <div class="des">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium voluptates optio quasi in iure tempore facere voluptatum laborum omnis aut numquam doloremque, velit rem, illo culpa dolorem possimus dolore facilis?
+                    </div>
+                    
+                    <div class="buttons">
+                        <button>SEE MORE</button>
+                        <button>SUBSCRIBE</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="images/python.jpg">
+                <div class="content">
+                    <div class="author">LUNDEV</div>
+                    <div class="title">DESIGN SLIDER</div> <!--Project name-->
+                    <div class="topic">ANIMAL</div>
+                    <div class="des">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium voluptates optio quasi in iure tempore facere voluptatum laborum omnis aut numquam doloremque, velit rem, illo culpa dolorem possimus dolore facilis?
+                    </div>
+                    
+                    <div class="buttons">
+                        <button>SEE MORE</button>
+                        <button>SUBSCRIBE</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="images/tiger.jpg">
+                <div class="content">
+                    <div class="author">LUNDEV</div>
+                    <div class="title">DESIGN SLIDER</div> <!--Project name-->
+                    <div class="topic">ANIMAL</div>
+                    <div class="des">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium voluptates optio quasi in iure tempore facere voluptatum laborum omnis aut numquam doloremque, velit rem, illo culpa dolorem possimus dolore facilis?
+                    </div>
+                    
+                    <div class="buttons">
+                        <button>SEE MORE</button>
+                        <button>SUBSCRIBE</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="images/elephant.jpg">
+                <div class="content">
+                    <div class="author">LUNDEV</div>
+                    <div class="title">DESIGN SLIDER</div> <!--Project name-->
+                    <div class="topic">ANIMAL</div>
+                    <div class="des">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium voluptates optio quasi in iure tempore facere voluptatum laborum omnis aut numquam doloremque, velit rem, illo culpa dolorem possimus dolore facilis?
+                    </div>
+                    
+                    <div class="buttons">
+                        <button>SEE MORE</button>
+                        <button>SUBSCRIBE</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!--Thumbnail Images-->
+        <div class="thumbnail">
+            <div class="item">
+                <img src="images/lion.jpg">
+                <div class="content">
+                    <div class="title">Name Slider</div>
+                    <div class="des">Description</div>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="images/python.jpg">
+                <div class="content">
+                    <div class="title">Name Slider</div>
+                    <div class="des">Description</div>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="images/tiger.jpg">
+                <div class="content">
+                    <div class="title">Name Slider</div>
+                    <div class="des">Description</div>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="images/elephant.jpg">
+                <div class="content">
+                    <div class="title">Name Slider</div>
+                    <div class="des">Description</div>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="images/cheetah.jpg">
+                <div class="content">
+                    <div class="title">Name Slider</div>
+                    <div class="des">Description</div>
+                </div>
+            </div>
+        </div>
+
+        <!--Arrows (To navigate the slider transition)-->
+        <div class="arrows">
+            <button id="prev"><</button>
+            <button id="next">></button>
+        </div>
+
+        <!--Time class used to check the running time of an animation-->
+        <div class="time">
+
+        </div>
+
+     </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
